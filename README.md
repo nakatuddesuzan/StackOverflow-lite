@@ -4,6 +4,13 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 This branch has User interface Pages
 
 ## Built Using
-- Markup language [HTML](https://html.com/)
-- Style sheet language [CSS](https://css-tricks.com/)
--  high-level, interpreted programming language [JavaScript](https://www.javascript.com/)
+- [HTML](https://html.com/) - Markup language
+- [CSS](https://css-tricks.com/) - Style sheet language 
+- [JavaScript](https://www.javascript.com/) - High-level, interpreted programming language
+
+## Authors
+- [Suzan](https://github.com/nakatuddesuzan)
+- See list of all [contributors](https://github.com/nakatuddesuzan) who participated in this project
+
+## Acknowlegments
+ - [W3schools](https://www.w3schools.com/) Online Web Tutorials
