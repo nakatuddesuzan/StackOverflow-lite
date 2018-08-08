@@ -1,7 +1,8 @@
 # StackOverflow-lite
 
 StackOverflow-lite is a platform where people can ask questions and provide answers.
-This branch has User interface Pages
+
+This branch has User interface Pages.
 
 ## Built Using
 - [HTML](https://html.com/) - Markup language
