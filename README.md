@@ -15,3 +15,6 @@ This branch has User interface Pages.
 
 ## Acknowlegments
  - [W3schools](https://www.w3schools.com/) Online Web Tutorials
+
+## Checkout
+[gh-pages](https://nakatuddesuzan.github.io/index.html)
