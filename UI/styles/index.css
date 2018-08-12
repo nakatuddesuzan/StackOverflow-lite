@@ -85,9 +85,4 @@ input[type=text], input[type=password], input[type=email]  {
     input[type=text]{
         padding: 5px 2px;
     }
-    footer{
-        display: none;
-    }
-    
-
 }
