@@ -90,8 +90,26 @@ body{
     }
 
     textarea{
-        height: 20%;
+        height: 100%;
     }
+    .column {
+        box-sizing: border-box;
+        float: unset;
+        padding: 5px;
+    }
+    .column1, .column2, .column3{
+        width: unset;
+    }
+    #replies, #qn{
+        width: 100%;
+    }
+    #btn-qn{
+        width: 100%;
+        text-align: center;
+        float: unset;
+        border-radius: 20px;
+    }
+    
 }
 
 
