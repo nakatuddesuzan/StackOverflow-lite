@@ -135,6 +135,11 @@ footer{
 
 
 @media screen and (max-width: 600px) {
+
+    body{
+        font-size: 16px;
+
+    }
     .topnav a, .topnav input[type=text], textarea{
       float: left;
       display: -webkit-inline-flex;
@@ -177,12 +182,9 @@ footer{
         height: unset;
     }
     
-    /* #footer{
+    #footer{
         display: flex;
         
-    } */
-    footer{
-        display: none;
     }
-   
+    
 }
