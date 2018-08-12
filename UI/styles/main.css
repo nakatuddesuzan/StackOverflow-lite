@@ -2,9 +2,6 @@ body{
     background-color: #f8f8f9;
     display: block;
     font-family: Arial, Helvetica, sans-serif;
-    /* height: 100%;
-    width: 100%; */
-
 }
 
 .link{
@@ -134,9 +131,7 @@ footer{
     background-color:rgb(68, 68, 248);;
 }
 
-.btn-signup{
-    background-color: darkblue
-}
+
 
 
 @media screen and (max-width: 600px) {
@@ -182,9 +177,12 @@ footer{
         height: unset;
     }
     
-    #footer{
+    /* #footer{
         display: flex;
         
+    } */
+    footer{
+        display: none;
     }
    
 }
