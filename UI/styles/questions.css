@@ -4,6 +4,11 @@ table {
     width: 100%;
 }
 
+.del-btn{
+    width: 20%;
+    padding: 2px;
+}
+
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
@@ -62,5 +67,17 @@ a{
 @media screen and (max-width: 600px) {
     textarea{
         width: 90%;
+    }
+    .del-btn{
+        width: 30%;
+    }
+    .topnav input[type=text]{
+        width: 50%;
+        text-align: center;
+        font-size: 16px;
+        margin: unset ;
+        padding: 5px;
+        margin-top: unset;
+        margin-left: 20px;
     }
 }
