@@ -109,5 +109,17 @@ body{
         float: unset;
         border-radius: 20px;
     }
+    .topnav input[type=text]{
+        width: 50%;
+        text-align: center;
+        font-size: 16px;
+        margin: unset ;
+        padding: 5px;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+    #nav{
+        width:47%;
+    }
     
 }
