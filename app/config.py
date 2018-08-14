@@ -1,4 +1,6 @@
 import os
+
+
 class BaseConfig(object):
     """
     Common configurations
