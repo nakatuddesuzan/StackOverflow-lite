@@ -1,10 +1,22 @@
 from flask import Flask
-
-def create_app():
-    # Initialize flask app
-    app_ = Flask(__name__, instance_relative_config=True)
-
-    return app_
+from .config import app_config
 
 
-app = create_app()
+app = Flask(__name__, instance_relative_config = True)
+app.config.from_object(app_config["development"])
+
+"""
+This function enables to  automatically generater ids for
+list items
+"""
+
+id = 0
+
+
+def generate_id(_list):
+    global id
+    if len(_list) == 0:
+        id = len(_list) + 1
+    else:
+        id = id + 1
+    return id
