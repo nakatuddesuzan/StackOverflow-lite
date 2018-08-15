@@ -14,7 +14,7 @@ id = 0
 
 
 def generate_id(_list):
-    global id
+    
     if len(_list) == 0:
         id = len(_list) + 1
     else:
