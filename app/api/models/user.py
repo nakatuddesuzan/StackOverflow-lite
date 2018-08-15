@@ -1,16 +1,19 @@
 import re
+from flask import jsonify
 from app import app
 from app import generate_id
+from app.api.models.questions import Question, qtns_list
 
 users_list = []
+
 user_id = generate_id(users_list)
 
 
-class User(object):
+class User(Question):
     """Class representing User model"""
 
     def __init__(self, user_id, username, email, password):
-        self.user_id = user_id
+        self.user_id = generate_id(users_list)
         self.username = username
         self.email = email
         self.password = password
@@ -60,3 +63,14 @@ class User(object):
 
         self._username = value
     
+    def create_qtn(self):
+        new_qtn = {
+            "qtn_id": self.qtn_id,
+            "title": self.title,
+            "subject": self.subject,
+            "qtn_desc": self.qtn_desc   
+        }
+
+        qtns_list.append(new_qtn)
+        return new_qtn
+
