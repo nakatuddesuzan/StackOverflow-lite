@@ -74,3 +74,10 @@ class User(Question):
         qtns_list.append(new_qtn)
         return new_qtn
 
+    @staticmethod
+    def get_one_question(qtn_id):
+        """This method gets a question from a list of questions"""
+        for  question in qtns_list:
+            if qtn_id == question['qtn_id']:
+                return question
+        return {"message": "question not found"}
