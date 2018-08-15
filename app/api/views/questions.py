@@ -7,7 +7,7 @@ from app import generate_id
 
 questions = Blueprint('questions', __name__)
 
-@questions.route('/api/v1/question/<int:user_id>', methods=['POST'])
+@questions.route('/api/v1/questions/<int:user_id>', methods=['POST'])
 def post_question(user_id):
     if not request.get_json():
         return make_response(jsonify({"message": "Request should be json"}), 400)
@@ -26,3 +26,23 @@ def post_question(user_id):
         qtn_made = User.create_qtn(qtn_instance)
         return jsonify(qtn_made), 200
     return jsonify({"message": "Sign up to be able to ask questions  on this platform"})
+
+@questions.route('/api/v1/questions/<int:user_id>/<int:qtn_id>', methods=['PUT'])
+def edit_question(user_id, qtn_id):
+    if not request.get_json():
+        return make_response(jsonify({"message": "Request should be json"}), 400)
+    title = request.get_json()['title']
+    subject = request.get_json()['subject']
+    qtn_desc = request.get_json()['qtn_desc']
+    user_id = request.get_json()['user_id']
+
+    updated_qtn = User.update_qtn(
+        qtn_id,
+        title = title,
+        subject = subject,
+        qtn_desc = qtn_desc,
+        user_id = user_id
+
+    )
+    
+    return jsonify({'Updated': updated_qtn}), 200
