@@ -1,9 +1,9 @@
 import re
-import jwt
-from datetime import datetime, timedelta
 from app import app
+from app import generate_id
 
 users_list = []
+user_id = generate_id(users_list)
 
 
 class User(object):
@@ -59,4 +59,4 @@ class User(object):
             raise ValueError("Invalid characters not allowed")
 
         self._username = value
-        
+    
