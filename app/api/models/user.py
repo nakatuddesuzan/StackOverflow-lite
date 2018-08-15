@@ -74,3 +74,15 @@ class User(Question):
         qtns_list.append(new_qtn)
         return new_qtn
 
+    @staticmethod
+    def delete_qtn(qtn_id, user_id):
+        """
+            This method enables a user to delete question by id
+        """
+        for count, user in enumerate(users_list):
+            if user_id == user['user_id']:
+                for count, question in enumerate(qtns_list):
+                    if qtn_id == question['qtn_id']:
+                        qtns_list.pop(count)
+                        return qtns_list     
+        return qtns_list
