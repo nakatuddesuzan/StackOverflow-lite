@@ -74,3 +74,11 @@ class User(Question):
         qtns_list.append(new_qtn)
         return new_qtn
 
+    @staticmethod
+    def get_questions():
+        """
+            This method returns all questions on the platform
+        """
+        if qtns_list:
+            return jsonify({"User Requests": qtns_list})
+        return jsonify({"message": "No questions found"})
