@@ -20,3 +20,8 @@ def generate_id(_list):
     else:
         id = id + 1
     return id
+
+from app.api.views.user import auth
+app.register_blueprint(auth)
+from app.api.views.questions import questions
+app.register_blueprint(questions)
