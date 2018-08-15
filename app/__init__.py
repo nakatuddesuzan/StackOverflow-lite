@@ -14,7 +14,7 @@ id = 0
 
 
 def generate_id(_list):
-    
+    global id
     if len(_list) == 0:
         id = len(_list) + 1
     else:
@@ -23,5 +23,6 @@ def generate_id(_list):
 
 from app.api.views.user import auth
 app.register_blueprint(auth)
-from app.api.views.questions import questions
+from app.api.views.questions import questions,answers
 app.register_blueprint(questions)
+app.register_blueprint(answers)
