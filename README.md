@@ -35,3 +35,17 @@ $ pip install -r requirements.txt
 $ Python run.py
 $ Run the server At the terminal or console type
 ```
+## Versioning
+```
+This API is versioned using url versioning starting, with the letter **-v-**
+This is version one"v1" of the API
+```
+## Contributors
+- [Sue](https://github.com/nakatuddesuzan)
+
+## Acknowledgements
+- [Sue](https://github.com/nakatuddesuzan)
+
+> *If you don't make it through the first time call it v1*
+> *Don't stop because you are tired, Stop because you are done*
+> *Learning is a continous process*
