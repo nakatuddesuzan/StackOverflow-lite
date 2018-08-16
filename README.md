@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/nakatuddesuzan/StackOverflow-lite.svg?branch=challenge-two)](https://travis-ci.org/nakatuddesuzan/StackOverflow-lite)
+[![Coverage Status](https://coveralls.io/repos/github/nakatuddesuzan/StackOverflow-lite/badge.svg?branch=challenge-two)](https://coveralls.io/github/nakatuddesuzan/StackOverflow-lite?branch=challenge-two)
 
 # StackOverflow-lite
 StackOverflow-lite is a platform where people can ask questions and provide answers.
