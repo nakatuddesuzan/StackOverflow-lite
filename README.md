@@ -10,9 +10,11 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 
 ## Running the tests
 To run tests run this command below in your terminal
-- *nosetests -v --with-coverage*
+```nosetests -v --with-coverage```
 
 ## Installation
 **Install all the necessary _dependencies_ by**
-- *pip install -r requirements.txt*
-- *Run the server At the terminal or console type*
+```
+pip install -r requirements.txt
+Run the server At the terminal or console type
+```
