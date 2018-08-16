@@ -23,6 +23,6 @@ def post_question(user_id):
                 qtn_desc=qtn_desc,
                 user_id=user_id
             )
-        qtn_made = User.create_qtn(qtn_instance)
-        return jsonify(qtn_made), 200
+            qtn_made = User.create_qtn(qtn_instance)
+            return jsonify(qtn_made), 200
     return jsonify({"message": "Sign up to be able to ask questions  on this platform"})
