@@ -47,5 +47,7 @@ This is version one"v1" of the API
 - [Sue](https://github.com/nakatuddesuzan)
 
 > *If you don't make it through the first time call it v1*
+
 > *Don't stop because you are tired, Stop because you are done*
+
 > *Learning is a continous process*
