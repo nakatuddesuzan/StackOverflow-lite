@@ -68,7 +68,7 @@ class User(Question):
             "qtn_id": self.qtn_id,
             "title": self.title,
             "subject": self.subject,
-            "qtn_desc": self.qtn_desc
+            "qtn_desc": self.qtn_desc 
         }
 
         qtns_list.append(new_qtn)
