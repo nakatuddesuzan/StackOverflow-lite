@@ -45,6 +45,10 @@ This is version one"v1" of the API
 |   -------------------------------------- | -----------------------------------------  |
 |     POST   api/v1/users/signup           |             Registers a new user           |
 |     POST api/v1/question/user_id         |             Post User Questions            |
+|     GET  api/v1/question/user_id/qtn_id  |             Get one user Question          |
+|     GET  api/v1/question/user_id         |             Get one user Question          |
+|     PUT api/v1/question/user_id/qtn_id   |             Edit user Question             |
+|    DELETE api/v1/question/user_id/qtn_id |             Delete user Question           |
 
 ## Contributors
 - [Sue](https://github.com/nakatuddesuzan)
