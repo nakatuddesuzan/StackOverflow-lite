@@ -48,7 +48,7 @@ This is version one"v1" of the API
 
 ## End Points
 |           End Point                      |            Functionality                   |
-|   ---------------------------------------|-----------------------------------------|
+|   -------------------------------------- | -----------------------------------------  |
 |     POST   api/v1/users/signup           |             Registers a new user           |                   |
 |     POST api/v1/question/user_id         |             Post User Questions            |
 |
