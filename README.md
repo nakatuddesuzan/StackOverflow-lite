@@ -10,6 +10,7 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 
 ## Running the tests
 To run tests run this command below in your terminal
+
 ```nosetests -v --with-coverage```
 
 ## Installation
