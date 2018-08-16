@@ -30,4 +30,3 @@ def register():
     users_list.append(user)
 
     return jsonify(user), 201
-    
