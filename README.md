@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/nakatuddesuzan/StackOverflow-lite.svg?branch=challenge-two)](https://travis-ci.org/nakatuddesuzan/StackOverflow-lite)
-
 # StackOverflow-lite
 StackOverflow-lite is a platform where people can ask questions and provide answers.
 
