@@ -46,7 +46,7 @@ class BaseTestCase(unittest.TestCase):
         return self.client.post(
             'api/v1/question/1',
             data=json.dumps(dict(
-                user_id= 1,
+                user_id=1,
                 title=title,
                 subject=subject,
                 qtn_desc=qtn_desc
