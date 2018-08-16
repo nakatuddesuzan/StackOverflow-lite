@@ -37,7 +37,7 @@ $ Run the server At the terminal or console type
 ```
 ## Versioning
 ```
-This API is versioned using url versioning starting, with the letter **-v-**
+This API is versioned using url versioning starting, with the letter 'v'
 This is version one"v1" of the API
 ```
 ## Contributors
