@@ -51,7 +51,7 @@ This is version one"v1" of the API
 |   -------------------------------------- | -----------------------------------------  |
 |     POST   api/v1/users/signup           |             Registers a new user           |                   |
 |     POST api/v1/question/user_id         |             Post User Questions            |
-|
+
 > *If you don't make it through the first time call it v1*
 
 > *Don't stop because you are tired, Stop because you are done*
