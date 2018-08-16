@@ -1,7 +1,13 @@
 import json
 from tests.base import BaseTestCase
+from app.api.models.user import User
 
 class TestUserAuth(BaseTestCase):
+
+
+    def test_if_user_class_exists(self):
+        user = User(1,"sue", "sue@gmail.com", "Bootcamp11")
+        self.assertTrue(user)
 
     def test_if_json_data(self):
         """
@@ -10,6 +16,21 @@ class TestUserAuth(BaseTestCase):
         with self.client:
             response = self.register_user("sue", "sue@gmail.com", "Bootcamp11")
             self.assertTrue(response.content_type == 'application/json')
+
+    def test_json_data_error_response(self):
+        """
+            Test error message if not json data provided
+        """
+        response = self.register_user("sue", "sue@gmail.com", "Bootcamp11")
+        data = json.loads(response.data.decode())
+        self.assertNotEqual(data.get('message'), "Request should be json")
+
+    def test_json_data_error_response_code(self):
+        """
+            Test response code if not json data provided
+        """
+        response = self.register_user("sue", "sue@gmail.com", "Bootcamp11")
+        self.assertNotEqual(response.status_code, 400)
 
     def test_successful_signup(self):
         """
