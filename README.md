@@ -22,8 +22,10 @@ $ https://github.com/nakatuddesuzan/StackOverflow-lite.gite
 $ cd StackOverflow-lite
 ```
 **Create virtual environment and install it**
+```
 $ virtualenv --python=python3 venv
 $ source /venv/bin/activate
+```
 **Install all the necessary _dependencies_ by**
 ```
 $ pip install -r requirements.txt
