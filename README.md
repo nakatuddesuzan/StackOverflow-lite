@@ -40,6 +40,12 @@ $ Run the server At the terminal or console type
 This API is versioned using url versioning starting, with the letter 'v'
 This is version one"v1" of the API
 ```
+## End Points
+|           End Point                      |            Functionality                   |
+|   -------------------------------------- | -----------------------------------------  |
+|     POST   api/v1/users/signup           |             Registers a new user           |
+|     POST api/v1/question/user_id         |             Post User Questions            |
+
 ## Contributors
 - [Sue](https://github.com/nakatuddesuzan)
 
@@ -51,9 +57,3 @@ This is version one"v1" of the API
 > *Don't stop because you are tired, Stop because you are done*
 
 > *Learning is a continous process*
-
-## End Points
-|           End Point                      |            Functionality                   |
-|   -------------------------------------- | -----------------------------------------  |
-|     POST   api/v1/users/signup           |             Registers a new user           |
-|     POST api/v1/question/user_id         |             Post User Questions            |
