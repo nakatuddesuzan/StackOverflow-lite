@@ -8,6 +8,14 @@ class TestReplies(BaseTestCase):
 
     """Class for testing user replies"""
     
+    def test_if_json_data(self):
+        """
+            Test for json data
+        """
+        with self.client:
+            response = self.post_reply(1, 1, "Use static methods")
+            self.assertTrue(response.content_type == 'application/json')
+
     def test_reply_class(self):
         """Test for existence of reply model"""
     
