@@ -78,6 +78,21 @@ class User(Question , Reply):
         return new_qtn
 
     @staticmethod
+
+    def update_qtn(qtn_id, user_id, title, subject, qtn_desc):
+        """
+            This method enables a user to update question by id
+        """
+        for user in users_list:
+            if user_id == user['user_id']:
+                for question in qtns_list:
+                    if qtn_id == question['qtn_id']:
+                        question['title'] = title
+                        question['subject'] = subject
+                        question['qtn_desc'] = qtn_desc
+                        return question
+        return {"message": "OOOOooooppps something went wrong"}
+
     def delete_qtn(qtn_id, user_id):
         """
             This method enables a user to delete question by id
