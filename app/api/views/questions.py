@@ -61,4 +61,3 @@ def del_qtn(qtn_id, user_id):
 def get_question(qtn_id):
     question = User.get_one_question(qtn_id)
     return jsonify({qtn_id: question})
-
