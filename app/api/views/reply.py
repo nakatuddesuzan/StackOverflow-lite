@@ -3,7 +3,7 @@ from app.api.models.user import users_list
 from app.api.models.questions import Question, qtns_list
 from app.api.models.user import User
 from app import generate_id
-from app.api.models.reply import Reply
+from app.api.models.reply import Reply, replies_list
 
 
 answers = Blueprint('answers', __name__)
@@ -22,6 +22,7 @@ def post_answer(user_id, qtn_id):
                 if qtn_id == question['qtn_id']:
                     answer = Reply(user_id=user_id, qtn_id=qtn_id, reply_desc = reply_desc)
                     reply_made = User.make_reply(answer)
-                    return jsonify(reply_made), 200   
+                    replies_list.append(reply_made)
+                    return jsonify(reply_made)   
         return jsonify({"message": "Question not found"})   
     return jsonify({"message": "Sign up to be able to ask questions  on this platform"})
