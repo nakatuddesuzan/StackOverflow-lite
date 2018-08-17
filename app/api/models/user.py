@@ -3,16 +3,19 @@ from flask import jsonify
 from app import app
 from app import generate_id
 from app.api.models.questions import Question, qtns_list
+from app.api.models.reply import Reply, replies_list
 
 users_list = []
 
 user_id = generate_id(users_list)
 
 
-class User(Question):
+class User(Question , Reply):
     """Class representing User model"""
 
     def __init__(self, user_id, username, email, password):
+        super(User, self). __init__(user_id, 'title', 'subject', 'qtn_desc')
+        super(User, self). __init__(user_id, 'qtn_id', 'reply_desc','qtn_dec')
         self.user_id = generate_id(users_list)
         self.username = username
         self.email = email
@@ -74,6 +77,15 @@ class User(Question):
         qtns_list.append(new_qtn)
         return new_qtn
 
+    def make_reply(self):
+        new_reply =  {
+            "qtn_id": self.qtn_id,
+            "user_id": self.user_id,
+            "reply": self.reply_desc  
+        }
+        replies_list.append(new_reply)
+        return new_reply
+      
     @staticmethod
     def get_one_question(qtn_id):
         """This method gets a question from a list of questions"""
