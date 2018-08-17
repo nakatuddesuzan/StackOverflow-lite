@@ -32,11 +32,6 @@ def get_all_questions():
     questions = User.get_questions()
     return questions
 
-            qtn_made = User.create_qtn(qtn_instance)
-            return jsonify(qtn_made), 200
-    return jsonify({"message": "Sign up to be able to ask questions  on this platform"})
-
-
 @questions.route('/api/v1/questions/<int:user_id>/<int:qtn_id>', methods=['PUT'])
 def edit_question(user_id, qtn_id):
     if not request.get_json():
