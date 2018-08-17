@@ -121,3 +121,22 @@ class TestUserAuth(BaseTestCase):
             self.assertRaises(
                 Exception, lambda: self.register_user("", "sue@gmail.com", "Bootcamp11")
             )
+    def test_status_code_on_succesful_login(self):
+        with self.client:
+            self.register_user("sue", "sue@gmail.com", "Bootcamp11")
+            response = self.login_user("sue@gmail.com", "Bootcamp11")
+            self.assertEqual(response.status_code, 200)
+
+    def test_message_on_succesful_login(self):
+        with self.client:
+            self.register_user("sue", "sue@gmail.com", "Bootcamp11")
+            response = self.login_user("sue@gmail.com", "Bootcamp11")
+            data = json.loads(response.data.decode())
+            self.assertEqual(data.get('message'), "Login successful")
+    
+    def test_login_using_wrong_credentials(self):
+        with self.client:
+            self.register_user("sue", "sue@gmail.com", "Bootcamp11")
+            response = self.login_user("peter@gmail.com", "Bootcamp12")
+            data = json.loads(response.data.decode())
+            self.assertEqual(data.get('message'), "wrong username or password")

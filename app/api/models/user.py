@@ -1,3 +1,5 @@
+import jwt
+from datetime import datetime, timedelta
 import re
 from flask import jsonify
 from app import app
@@ -78,7 +80,6 @@ class User(Question , Reply):
         return new_qtn
 
     @staticmethod
-
     def update_qtn(qtn_id, user_id, title, subject, qtn_desc):
         """
             This method enables a user to update question by id
@@ -93,6 +94,7 @@ class User(Question , Reply):
                         return question
         return {"message": "OOOOooooppps something went wrong"}
 
+    @staticmethod
     def delete_qtn(qtn_id, user_id):
         """
             This method enables a user to delete question by id
@@ -131,3 +133,41 @@ class User(Question , Reply):
         if qtns_list:
             return jsonify({"User Requests": qtns_list})
         return jsonify({"message": "No questions found"})
+        
+    @staticmethod
+    def encode_auth_token(user_id):
+        """
+        Generates the Auth Token
+        :return: string
+            """
+        try:
+            """ set payload expiration time"""
+            payload = {
+                'exp': datetime.utcnow() + timedelta(seconds=30),
+                # international atomic time
+                'iat': datetime.utcnow(),
+                # default  to user id
+                'sub': user_id
+            }
+            return jwt.encode(
+                payload,
+                app.config.get('SECRET_KEY'),
+                algorithm='HS256'
+            )
+        except Exception as e:
+            return e
+
+    @staticmethod
+    def decode_auth_token(auth_token):
+        """
+        Decodes the auth token
+        :param auth_token:
+        :return: integer|string
+        """
+        try:
+            payload = jwt.decode(auth_token, app.config.get('SECRET_KEY'))
+            return {'user_id': payload['sub'], "status": "Success"}
+        except jwt.ExpiredSignatureError:
+            return 'Signature expired. Please log in again.'
+        except jwt.InvalidTokenError:
+            return 'Invalid token. Please log in again.'

@@ -54,3 +54,24 @@ class BaseTestCase(unittest.TestCase):
             ),
             content_type='application/json'
         )
+
+    def login_user(self, email, password):
+        """
+        Method for logging a user with dummy data
+        """
+        return self.client.post(
+            'api/v1/users/login',
+            data=json.dumps({
+                "email": email,
+                "password": password}
+            ),
+            content_type='application/json'
+        )
+
+    def get_token(self):
+        """
+        Returns a user token
+        """
+        response = self.login_user("sue@gmail.com", "graphics")
+        data = json.loads(response.data.decode())
+        return data['token']
