@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, make_response
 from app.api.models.user import users_list
-from app.api.models.questions import Question
+from app.api.models.questions import Question, qtns_list
 from app.api.models.user import User
 from app import generate_id
 
@@ -36,3 +36,7 @@ def get_all_questions():
             return jsonify(qtn_made), 200
     return jsonify({"message": "Sign up to be able to ask questions  on this platform"})
 
+@questions.route('/api/v1/question/<int:qtn_id>', methods=['GET'])
+def get_question(qtn_id):
+    question = User.get_one_question(qtn_id)
+    return jsonify({qtn_id: question})
