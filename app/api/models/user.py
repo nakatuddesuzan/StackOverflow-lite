@@ -33,8 +33,7 @@ class User(Question):
             raise Exception(
                 'Weak password \n Password should have atleast one integer')
         if pwd.isupper() or pwd.islower() or pwd.isdigit():
-            print(
-                "Weak password \n Either you need to include alphabets or \n try include both letter cases")
+            print("Weak password")
         self._password = pwd
 
     @property
@@ -52,6 +51,7 @@ class User(Question):
     @property
     def username(self):
         return self._username
+
     @username.setter
     def username(self, value):
         if not value:
@@ -62,13 +62,13 @@ class User(Question):
             raise ValueError("Invalid characters not allowed")
 
         self._username = value
-    
+
     def create_qtn(self):
         new_qtn = {
             "qtn_id": self.qtn_id,
             "title": self.title,
             "subject": self.subject,
-            "qtn_desc": self.qtn_desc   
+            "qtn_desc": self.qtn_desc 
         }
 
         qtns_list.append(new_qtn)
@@ -81,3 +81,14 @@ class User(Question):
             if qtn_id == question['qtn_id']:
                 return question
         return {"message": "question not found"}
+
+
+    @staticmethod
+    def get_questions():
+        """
+            This method returns all questions on the platform
+        """
+        if qtns_list:
+            return jsonify({"User Requests": qtns_list})
+        return jsonify({"message": "No questions found"})
+

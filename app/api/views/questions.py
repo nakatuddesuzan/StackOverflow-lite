@@ -24,7 +24,16 @@ def post_question(user_id):
                 user_id=user_id
             )
         qtn_made = User.create_qtn(qtn_instance)
-        return jsonify(qtn_made), 200
+        return jsonify(qtn_made), 201
+    return jsonify({"message": "Sign up to be able to ask questions  on this platform"}), 401
+
+@questions.route('/api/v1/questions', methods=['GET'])
+def get_all_questions():
+    questions = User.get_questions()
+    return questions
+
+            qtn_made = User.create_qtn(qtn_instance)
+            return jsonify(qtn_made), 200
     return jsonify({"message": "Sign up to be able to ask questions  on this platform"})
 
 @questions.route('/api/v1/question/<int:qtn_id>', methods=['GET'])
