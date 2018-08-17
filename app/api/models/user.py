@@ -3,16 +3,19 @@ from flask import jsonify
 from app import app
 from app import generate_id
 from app.api.models.questions import Question, qtns_list
+from app.api.models.reply import Reply, replies_list
 
 users_list = []
 
 user_id = generate_id(users_list)
 
 
-class User(Question):
+class User(Question , Reply):
     """Class representing User model"""
 
     def __init__(self, user_id, username, email, password):
+        super(User, self). __init__(user_id, 'title', 'subject', 'qtn_desc')
+        super(User, self). __init__(user_id, 'qtn_id', 'reply_desc','qtn_dec')
         self.user_id = generate_id(users_list)
         self.username = username
         self.email = email
@@ -33,8 +36,7 @@ class User(Question):
             raise Exception(
                 'Weak password \n Password should have atleast one integer')
         if pwd.isupper() or pwd.islower() or pwd.isdigit():
-            print(
-                "Weak password \n Either you need to include alphabets or \n try include both letter cases")
+            print("Weak password")
         self._password = pwd
 
     @property
@@ -52,6 +54,7 @@ class User(Question):
     @property
     def username(self):
         return self._username
+
     @username.setter
     def username(self, value):
         if not value:
@@ -62,13 +65,13 @@ class User(Question):
             raise ValueError("Invalid characters not allowed")
 
         self._username = value
-    
+
     def create_qtn(self):
         new_qtn = {
             "qtn_id": self.qtn_id,
             "title": self.title,
             "subject": self.subject,
-            "qtn_desc": self.qtn_desc   
+            "qtn_desc": self.qtn_desc 
         }
 
         qtns_list.append(new_qtn)
@@ -86,3 +89,30 @@ class User(Question):
                         qtns_list.pop(count)
                         return qtns_list     
         return qtns_list
+      
+    def make_reply(self):
+        new_reply =  {
+            "qtn_id": self.qtn_id,
+            "user_id": self.user_id,
+            "reply": self.reply_desc  
+        }
+        replies_list.append(new_reply)
+        return new_reply
+      
+    @staticmethod
+    def get_one_question(qtn_id):
+        """This method gets a question from a list of questions"""
+        for  question in qtns_list:
+            if qtn_id == question['qtn_id']:
+                return question
+        return {"message": "question not found"}
+
+
+    @staticmethod
+    def get_questions():
+        """
+            This method returns all questions on the platform
+        """
+        if qtns_list:
+            return jsonify({"User Requests": qtns_list})
+        return jsonify({"message": "No questions found"})
