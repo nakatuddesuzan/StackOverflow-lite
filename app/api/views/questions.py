@@ -36,6 +36,11 @@ def get_all_questions():
             return jsonify(qtn_made), 200
     return jsonify({"message": "Sign up to be able to ask questions  on this platform"})
 
+@questions.route('/api/v1/questions/<int:user_id>/<int:qtn_id>', methods=['DELETE'])
+def del_qtn(qtn_id, user_id):
+    remaining_questions = User.delete_qtn(qtn_id, user_id)
+    return jsonify({'Current_questions': remaining_questions})
+
 @questions.route('/api/v1/question/<int:qtn_id>', methods=['GET'])
 def get_question(qtn_id):
     question = User.get_one_question(qtn_id)
