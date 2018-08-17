@@ -54,6 +54,30 @@ class BaseTestCase(unittest.TestCase):
             ),
             content_type='application/json'
         )
+    
+    def update_question(self, user_id, qtn_id, title, subject, qtn_desc):
+        """
+        Method for updating a question
+        """
+        return self.client.put(
+            'api/v1/questions/1/1',
+            data=json.dumps(dict(
+                qtn_id=1,
+                user_id=1,
+                title=title,
+                subject=subject,
+                qtn_desc=qtn_desc
+            )
+            ),
+            content_type='application/json'
+        )
+    
+    def delete_question(self, user_id, qtn_id):
+        """
+        Method for deleting a question
+        """
+        return self.client.delete('api/v1/questions/1/1')
+
 
     def login_user(self, email, password):
         """
@@ -64,6 +88,35 @@ class BaseTestCase(unittest.TestCase):
             data=json.dumps({
                 "email": email,
                 "password": password}
+            ),
+            content_type='application/json'
+        )
+    
+    def get_all_questions(self):
+        """
+            Method for retrieving all questions
+        """
+        return self.client.get('api/v1/questions')
+    
+    def get_one_question(self):
+        """
+            Method for retrieving one question from the list
+        """
+        return self.client.get('api/v1/question/1')
+
+    
+    def post_reply(self, user_id, qtn_id, reply_desc):
+        """
+            Method for posting reply for a question
+        """
+        return self.client.post(
+            'api/v1/answer/1/1',
+            data=json.dumps(dict(
+                reply_desc = reply_desc,
+                qtn_id = qtn_id,
+                user_id = user_id
+
+            )
             ),
             content_type='application/json'
         )
