@@ -41,10 +41,10 @@ class BaseTestCase(unittest.TestCase):
 
     def post_question(self, user_id, title, subject, qtn_desc):
         """
-        Method for registering a user
+        Method for posting a question
         """
         return self.client.post(
-            'api/v1/question/1',
+            'api/v1/questions/1',
             data=json.dumps(dict(
                 user_id=1,
                 title=title,
