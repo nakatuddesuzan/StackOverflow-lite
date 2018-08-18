@@ -1,6 +1,6 @@
 import json
 from tests.base import BaseTestCase
-from app.api.models.user import User
+from app.api.models.user import User, users_list, user_id
 
 class TestUserAuth(BaseTestCase):
 
@@ -135,8 +135,33 @@ class TestUserAuth(BaseTestCase):
             self.assertEqual(data.get('message'), "Login successful")
     
     def test_login_using_wrong_credentials(self):
+
         with self.client:
             self.register_user("sue", "sue@gmail.com", "Bootcamp11")
             response = self.login_user("peter@gmail.com", "Bootcamp12")
             data = json.loads(response.data.decode())
             self.assertEqual(data.get('message'), "wrong username or password")
+    
+    def test_if_encode_auth_token(self):
+        with self.client:
+            user = User(1,"sue", "sue@gmail.com", "Bootcamp11")
+            users_list.append(user)
+            auth_token = user.encode_auth_token(user_id)
+            self.assertTrue(isinstance(auth_token, bytes))
+    
+    def test_decode_auth_token(self):
+        with self.client:
+            user = User(1,"sue", "sue@gmail.com", "Bootcamp11")
+            users_list.append(user)
+            auth_token = user.encode_auth_token(user_id)
+            response = user.decode_auth_token(auth_token)
+            self.assertEqual(response.get('status'), 'Success')
+            self.assertEqual(response.get('user_id'), 1)
+            
+    def test_if_user_gets_token_on_log_in(self):
+        """Test for user login token"""
+        with self.client:
+            self.register_user("sue", "sue@gmail.com", "Bootcamp11")
+            response = self.login_user("sue@gmail.com", "Bootcamp11")
+            data = json.loads(response.data.decode())
+            self.assertTrue(data['token'])
