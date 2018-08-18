@@ -2,7 +2,7 @@ import unittest
 import json
 from app import app, app_config
 from app.api.models.questions import qtns_list
-from app.api.models.user import users_list
+from app.api.models.user import User, users_list, user_id
 
 
 class BaseTestCase(unittest.TestCase):
@@ -120,11 +120,3 @@ class BaseTestCase(unittest.TestCase):
             ),
             content_type='application/json'
         )
-
-    def get_token(self):
-        """
-        Returns a user token
-        """
-        response = self.login_user("sue@gmail.com", "graphics")
-        data = json.loads(response.data.decode())
-        return data['token']
