@@ -143,10 +143,13 @@ class User(Question , Reply):
         try:
             """ set payload expiration time"""
             payload = {
+                #expiration date of the token
                 'exp': datetime.utcnow() + timedelta(seconds=30),
                 # international atomic time
+                #the time the token is generated
                 'iat': datetime.utcnow(),
-                # default  to user id
+                # the subject of the token 
+                # (the user whom it identifies)
                 'sub': user_id
             }
             return jwt.encode(
@@ -156,3 +159,18 @@ class User(Question , Reply):
             )
         except Exception as e:
             return e
+
+    @staticmethod
+    def decode_auth_token(auth_token):
+        """
+        Decodes the auth token
+        :param auth_token:
+        :return: integer|string
+        """
+        try:
+            payload = jwt.decode(auth_token, app.config.get('SECRET_KEY'))
+            return {'user_id': payload['sub'], "status": "Success"}
+        except jwt.ExpiredSignatureError:
+            return 'Signature expired. Please log in again.'
+        except jwt.InvalidTokenError:
+            return 'Invalid token. Please log in again.'
