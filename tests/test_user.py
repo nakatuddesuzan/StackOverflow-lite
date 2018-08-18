@@ -78,11 +78,29 @@ class TestUserAuth(BaseTestCase):
             )
     def test_invalid_password(self):
         """
-            Test for valid password
+            Test for invalid password
         """
         with self.client:
             self.assertRaises(
-                Exception, lambda: self.register_user("sue", "sue@gmail.com", "boo")
+                Exception, lambda: self.register_user("sue", "sue@gmail.com", 123456789)
+            )
+    
+    def test_password_length(self):
+        """
+            Test for password length < 8 characters
+        """
+        with self.client:
+            self.assertRaises(
+                Exception, lambda: self.register_user("sue", "sue@gmail.com", "Boo")
+            )
+    
+    def test_if_passsword_has_only_characters(self):
+        """
+            Test for password has characters only
+        """
+        with self.client:
+            self.assertRaises(
+                Exception, lambda: self.register_user("sue", "sue@gmail.com", "Bootcampers")
             )
     
     def test_empty_password_field(self):
