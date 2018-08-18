@@ -31,7 +31,7 @@ class User(Question , Reply):
     def password(self, pwd):
         if not pwd:
             raise Exception("Field can't be empty")
-        if len(pwd) < 8 and len(pwd) > 12:
+        if len(pwd) < 8 or len(pwd) > 12:
             raise Exception(
                 "Weak password \n Password must be 8 characters long ")
         if not re.search(r'[0-9]', pwd):
