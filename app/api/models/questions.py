@@ -1,6 +1,7 @@
 from app import generate_id
 
 qtns_list = []
+qtn_id = generate_id(qtns_list)
 
 class Question:
     

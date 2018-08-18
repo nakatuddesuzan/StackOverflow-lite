@@ -70,3 +70,41 @@ class TestReplies(BaseTestCase):
             response = self.post_reply(1, 1, "Use static methods")
             data = json.loads(response.data.decode())
             self.assertEqual(data.get("message"), "Sign up to reply")
+    
+    def test_delete_reply(self):
+        """Test  if a reply can be deleted"""
+        with self.client:
+            self.register_user("sue", "sue@gmail.com", "Bootcamp11")
+            self.post_question(1, "flask", "python", "importing files")
+            self.post_reply(1, 1, "Use static methods")
+            response = self.delete_reply(1, 1, 1)
+            data = json.loads(response.data.decode())
+            self.assertEqual(data['Replies left'], [])
+
+    def test_unauthorized_delete_of_a_reply(self):
+        """Test if a non-registere user can delete a reply"""
+        with self.client:
+            self.post_question(1, "flask", "python", "importing files")
+            self.post_reply(1, 1, "Use static methods")
+            response = self.delete_reply(1, 1, 1)
+            data = json.loads(response.data.decode())
+            self.assertEqual(data['message'], 'Oooppss something went wrong')
+        
+    def test_delete_replies(self):
+        """Test  if all replies can be deleted at once"""
+        with self.client:
+            self.register_user("sue", "sue@gmail.com", "Bootcamp11")
+            self.post_question(1, "flask", "python", "importing files")
+            self.post_reply(1, 1, "Use static methods")
+            response = self.delete_all_replies(1, 1)
+            data = json.loads(response.data.decode())
+            self.assertEqual(data['Replies left'], [])
+
+    def test_unauthorized_delete_of_all_replies(self):
+        """Test if a non-registere user can delete a reply"""
+        with self.client:
+            self.post_question(1, "flask", "python", "importing files")
+            self.post_reply(1, 1, "Use static methods")
+            response = self.delete_all_replies(1, 1)
+            data = json.loads(response.data.decode())
+            self.assertEqual(data.get('message'), 'Oooppss something went wrong')

@@ -105,6 +105,7 @@ class User(Question , Reply):
       
     def make_reply(self):
         new_reply =  {
+            "reply_id": self.reply_id,
             "qtn_id": self.qtn_id,
             "user_id": self.user_id,
             "reply": self.reply_desc  
