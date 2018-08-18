@@ -15,7 +15,7 @@ class TestReplies(BaseTestCase):
         with self.client:
             response = self.post_reply(1, 1, "Use static methods")
             self.assertTrue(response.content_type == 'application/json')
-
+            
     def test_reply_class(self):
         """Test for existence of reply model"""
     
@@ -59,7 +59,7 @@ class TestReplies(BaseTestCase):
             self.register_user("sue", "sue@gmail.com", "Bootcamp11")
             response = self.post_reply(1, 1, "Use static methods")
             data = json.loads(response.data.decode())
-            self.assertEqual(data.get("message"), "Question not found")
+            self.assertEqual(data.get("message"), "User not found")
     
     def test_replying_by_non_existent_user(self):
         """
@@ -69,4 +69,4 @@ class TestReplies(BaseTestCase):
         with self.client:
             response = self.post_reply(1, 1, "Use static methods")
             data = json.loads(response.data.decode())
-            self.assertEqual(data.get("message"), "Sign up to be able to ask questions  on this platform")
+            self.assertEqual(data.get("message"), "Sign up to reply")

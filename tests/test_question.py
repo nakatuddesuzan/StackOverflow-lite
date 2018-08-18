@@ -112,3 +112,14 @@ class TestQuestion(BaseTestCase):
             response = self.update_question(1, 1, "not working", "CSS", "chjushxhxbh" )
             self.assertNotEqual(response.status_code, 400)
 
+    def test_post_question_by_non_existent_user(self):
+        """Test for an authorized questions posting"""
+
+        with self.client:
+            response = self.post_question(1, "flask", "python", "importing files")
+            data = json.loads(response.data.decode())
+            self.assertEqual(
+                data.get('message'), 
+                "Sign up to be able to ask questions  on this platform"
+                )
+

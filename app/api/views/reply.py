@@ -24,5 +24,5 @@ def post_answer(user_id, qtn_id):
                     reply_made = User.make_reply(answer)
                     replies_list.append(reply_made)
                     return jsonify(reply_made)   
-        return jsonify({"message": "Question not found"})   
-    return jsonify({"message": "Sign up to be able to ask questions  on this platform"})
+        return jsonify({"message": "User not found"})   
+    return jsonify({"message": "Sign up to reply"})
