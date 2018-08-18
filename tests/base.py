@@ -120,3 +120,11 @@ class BaseTestCase(unittest.TestCase):
             ),
             content_type='application/json'
         )
+    
+    def delete_reply(self, user_id, qtn_id, reply_id):
+        """Method for delete reply"""
+        return self.client.delete('api/v1/answer/1/1/1')
+
+    def delete_all_replies(self, user_id, qtn_id):
+        """Method to delete all replies"""
+        return self.client.delete('api/v1/answers/1/1')
