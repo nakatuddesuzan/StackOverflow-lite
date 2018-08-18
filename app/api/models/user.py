@@ -81,9 +81,7 @@ class User(Question , Reply):
 
     @staticmethod
     def update_qtn(qtn_id, user_id, title, subject, qtn_desc):
-        """
-            This method enables a user to update question by id
-        """
+        """This method enables a user to update question by id"""
         for user in users_list:
             if user_id == user['user_id']:
                 for question in qtns_list:
@@ -96,9 +94,7 @@ class User(Question , Reply):
 
     @staticmethod
     def delete_qtn(qtn_id, user_id):
-        """
-            This method enables a user to delete question by id
-        """
+        """This method enables a user to delete question by id"""
         for count, user in enumerate(users_list):
             if user_id == user['user_id']:
                 for count, question in enumerate(qtns_list):
@@ -139,7 +135,7 @@ class User(Question , Reply):
         """
         Generates the Auth Token
         :return: string
-            """
+        """
         try:
             """ set payload expiration time"""
             payload = {

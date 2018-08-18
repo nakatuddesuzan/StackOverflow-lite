@@ -6,7 +6,7 @@ from app import generate_id
 auth = Blueprint('auth', __name__)
 
 @auth.route('/api/v1/users/signup', methods=['POST'])
-def register():
+def register_user():
     if not request.get_json():
         return make_response(jsonify({"message": "Request should be json"}), 400)
     username = request.get_json()['username']
