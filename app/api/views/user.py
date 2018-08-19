@@ -18,7 +18,7 @@ def register_user():
             'email': email,
             'password': password,
             'user_id': user_id
-        } 
+    } 
     
     User('user_id', username=username, email=email, password=password)
    

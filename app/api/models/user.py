@@ -2,10 +2,10 @@ import jwt
 from datetime import datetime, timedelta
 import re
 from flask import jsonify
-from app import app
 from app import generate_id
 from app.api.models.questions import Question, qtns_list
 from app.api.models.reply import Reply, replies_list
+from flask import current_app, g
 
 users_list = []
 
@@ -82,26 +82,13 @@ class User(Question , Reply):
     @staticmethod
     def update_qtn(qtn_id, user_id, title, subject, qtn_desc):
         """This method enables a user to update question by id"""
-        for user in users_list:
-            if user_id == user['user_id']:
-                for question in qtns_list:
-                    if qtn_id == question['qtn_id']:
-                        question['title'] = title
-                        question['subject'] = subject
-                        question['qtn_desc'] = qtn_desc
-                        return question
-        return {"message": "OOOOooooppps something went wrong"}
-
-    @staticmethod
-    def delete_qtn(qtn_id, user_id):
-        """This method enables a user to delete question by id"""
-        for count, user in enumerate(users_list):
-            if user_id == user['user_id']:
-                for count, question in enumerate(qtns_list):
-                    if qtn_id == question['qtn_id']:
-                        qtns_list.pop(count)
-                        return qtns_list     
-        return qtns_list
+        for question in qtns_list:
+            if qtn_id == question['qtn_id']:
+                question['title'] = title
+                question['subject'] = subject
+                question['qtn_desc'] = qtn_desc
+                return question
+        return {"message": "Question not found"}
       
     def make_reply(self):
         new_reply =  {
@@ -112,24 +99,6 @@ class User(Question , Reply):
         }
         replies_list.append(new_reply)
         return new_reply
-      
-    @staticmethod
-    def get_one_question(qtn_id):
-        """This method gets a question from a list of questions"""
-        for  question in qtns_list:
-            if qtn_id == question['qtn_id']:
-                return question
-        return {"message": "question not found"}
-
-
-    @staticmethod
-    def get_questions():
-        """
-            This method returns all questions on the platform
-        """
-        if qtns_list:
-            return jsonify({"User Requests": qtns_list})
-        return jsonify({"message": "No questions found"})
         
     @staticmethod
     def encode_auth_token(user_id):
@@ -141,17 +110,18 @@ class User(Question , Reply):
             """ set payload expiration time"""
             payload = {
                 #expiration date of the token
-                'exp': datetime.utcnow() + timedelta(seconds=30),
+                'exp': datetime.utcnow() + timedelta(minutes=30),
                 # international atomic time
                 #the time the token is generated
                 'iat': datetime.utcnow(),
                 # the subject of the token 
                 # (the user whom it identifies)
                 'sub': user_id
+                
             }
             return jwt.encode(
                 payload,
-                app.config.get('SECRET_KEY'),
+                current_app.config.get('SECRET_KEY'),
                 algorithm='HS256'
             )
         except Exception as e:
@@ -165,8 +135,13 @@ class User(Question , Reply):
         :return: integer|string
         """
         try:
-            payload = jwt.decode(auth_token, app.config.get('SECRET_KEY'))
-            return {'user_id': payload['sub'], "status": "Success"}
+            payload = jwt.decode(auth_token, current_app.config.get('SECRET_KEY'))
+            user = {'user_id': payload['sub'],
+                    'status': 'Success'
+            }
+            #add user to context
+            g.user = user
+            return user
         except jwt.ExpiredSignatureError:
             return 'Signature expired. Please log in again.'
         except jwt.InvalidTokenError:

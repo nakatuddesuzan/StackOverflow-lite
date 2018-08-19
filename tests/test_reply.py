@@ -108,3 +108,17 @@ class TestReplies(BaseTestCase):
             response = self.delete_all_replies(1, 1)
             data = json.loads(response.data.decode())
             self.assertEqual(data.get('message'), 'Oooppss something went wrong')
+    
+    def test_get_all_replies(self):
+        with self.client:
+            self.post_question(1, "flask", "python", "importing files")
+            self.post_reply(1, 1, "Use static methods")
+            response = self.get_all_replies(1)
+            self.assertEqual(response.status_code, 200)
+    
+    def test_test_get_replies_for_a_non_existent_question(self):
+        with self.client:
+            response = self.get_all_replies(1)
+            data = json.loads(response.data.decode())
+            print(data)
+            self.assertEqual(data['message'], 'No replies found')
