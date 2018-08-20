@@ -112,6 +112,12 @@ class BaseTestCase(unittest.TestCase):
             Method for retrieving one question from the list
         """
         return self.client.get('api/v1/question/1', headers=({"token": token}))
+    
+    def delete_all_questions(self, token):
+        """
+            Method for deleting all questions
+        """
+        return self.client.delete('api/v1/questions', headers=({"token": token}))
 
     
     def post_reply(self, user_id, qtn_id, reply_desc):
