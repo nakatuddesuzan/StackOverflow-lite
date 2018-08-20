@@ -120,7 +120,7 @@ class BaseTestCase(unittest.TestCase):
         return self.client.delete('api/v1/questions', headers=({"token": token}))
 
     
-    def post_reply(self, user_id, qtn_id, reply_desc):
+    def post_reply(self, token, user_id, qtn_id, reply_desc):
         """
             Method for posting reply for a question
         """
@@ -133,21 +133,22 @@ class BaseTestCase(unittest.TestCase):
 
             )
             ),
-            content_type='application/json'
+            content_type='application/json',
+            headers=({"token": token})
         )
     
-    def delete_reply(self, user_id, qtn_id, reply_id):
+    def delete_reply(self, token, user_id, qtn_id, reply_id):
         """Method for delete reply"""
-        return self.client.delete('api/v1/answer/1/1')
+        return self.client.delete('api/v1/answer/1/1', headers=({"token": token}))
 
-    def delete_all_replies(self, user_id, qtn_id):
+    def delete_all_replies(self, token, user_id, qtn_id):
         """Method to delete all replies"""
-        return self.client.delete('api/v1/answers/1')
+        return self.client.delete('api/v1/answers/1', headers=({"token": token}))
     
-    def get_all_replies(self, qtn_id):
+    def get_all_replies(self, token, qtn_id):
         """Method to retrieve all replies"""
-        return self.client.get('api/v1/answer/1')
+        return self.client.get('api/v1/answer/1', headers=({"token": token}))
     
-    def get_one_reply(self, qtn_id, reply_id):
+    def get_one_reply(self, token, qtn_id, reply_id):
         """Method for retrieving one reply"""
-        return self.client.get('api/v1/answer/1/1')
+        return self.client.get('api/v1/answer/1/1', headers=({"token": token}))
