@@ -88,7 +88,7 @@ class User(Question , Reply):
                 question['subject'] = subject
                 question['qtn_desc'] = qtn_desc
                 return question
-        return {"message": "Question not found"}
+        return "Question not found"
       
     def make_reply(self):
         new_reply =  {
