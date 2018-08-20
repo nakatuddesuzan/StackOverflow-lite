@@ -1,0 +1,101 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.del-btn{
+    width: 20%;
+    padding: 2px;
+}
+.accept-btn{
+    width: 10%;
+    padding: 2px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+a{
+    cursor: pointer;
+    color: blue;
+
+}
+
+.view{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    padding-top: 50px;
+    background-color: rgb(68, 68, 248);;
+}
+
+.view-content{
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid blue;
+    background-color: #f8f8f9;
+    width: 80%; 
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    cursor: pointer;
+}
+.reply{
+    background-color: white;
+}
+
+@media screen and (max-width: 600px) {
+    textarea{
+        width: 90%;
+    }
+    .del-btn{
+        width: 30%;
+    }
+    .accept-btn{
+        width: 20%;
+    }
+    .topnav input[type=text]{
+        width: 50%;
+        text-align: center;
+        font-size: 16px;
+        margin: unset ;
+        padding: 5px;
+        margin-top: unset;
+        margin-left: 20px;
+    }
+    .accept-btn{
+        width: 50%;
+        font-size: 16px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: white;
+    }
+    #replies1{
+        background-color: #dddddd;
+    }
+}
