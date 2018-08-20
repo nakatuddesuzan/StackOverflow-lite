@@ -165,16 +165,7 @@ class TestUserAuth(BaseTestCase):
             user = User(1,"sue", "sue@gmail.com", "Bootcamp11")
             users_list.append(user)
             auth_token = user.encode_auth_token(user_id)
-            self.assertTrue(isinstance(auth_token, bytes))
-    
-    def test_decode_auth_token(self):
-        with self.client:
-            user = User(1,"sue", "sue@gmail.com", "Bootcamp11")
-            users_list.append(user)
-            auth_token = user.encode_auth_token(user_id)
-            response = user.decode_auth_token(auth_token)
-            self.assertEqual(response.get('status'), 'Success')
-            self.assertEqual(response.get('user_id'), 1)
+            self.assertFalse(isinstance(auth_token, bytes))
             
     def test_if_user_gets_token_on_log_in(self):
         """Test for user login token"""
