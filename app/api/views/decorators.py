@@ -1,8 +1,7 @@
 from functools import wraps
 from flask_restful import abort
-from flask import request, jsonify, g
+from flask import request, jsonify
 from app.api.models.user import User
-from app.api.models.questions import qtns_list, Question
 
 def login_required(func):
     """
