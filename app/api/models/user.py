@@ -123,7 +123,8 @@ class User(Question , Reply):
                 payload,
                 current_app.config.get('SECRET_KEY'),
                 algorithm='HS256'
-            )
+            ).decode('UTF-8')
+            
         except Exception as e:
             return e
 
