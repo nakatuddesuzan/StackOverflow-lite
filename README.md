@@ -35,9 +35,10 @@ $ source /venv/bin/activate
 $ pip install -r requirements.txt
 ```
 **Run _app_ by**
+
 ```
+Run the server At the terminal or console type
 $ Python run.py
-$ Run the server At the terminal or console type
 ```
 ## Versioning
 ```
