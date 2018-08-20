@@ -20,7 +20,7 @@ def post_answer(user_id, qtn_id):
         if qtn_id == question['qtn_id']:
             answer = Reply(user_id=user_id, qtn_id=qtn_id, reply_desc = reply_desc)
             reply_made = User.make_reply(answer)
-            return jsonify(reply_made)  
+            return jsonify({'reply': reply_made})  
     return jsonify({"message": "Question not found"})
 
 #endpoint for user to delete replies to his or her question
@@ -37,7 +37,7 @@ def delete_replies(user_id, qtn_id):
 @answers.route('/api/v1/answer/<int:qtn_id>/<int:reply_id>', methods=['DELETE'])
 @login_required
 def delete_reply(user_id, qtn_id, reply_id):
-    for count, question in enumerate(qtns_list):
+    for question in qtns_list:
         if qtn_id == question['qtn_id']:
             for count, reply in enumerate(replies_list):
                 if reply_id == reply['reply_id']:
@@ -57,5 +57,5 @@ def get_all_answers(user_id, qtn_id):
 def get_one_answers(user_id, qtn_id, reply_id):
     for reply in replies_list:
         if reply_id == reply['reply_id']:
-            return jsonify(reply)
+            return jsonify({"reply": reply})
     return jsonify({"message": "Reply not found"})
