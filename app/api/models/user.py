@@ -24,8 +24,8 @@ class User(Question , Reply):
         self.password = password
 
     @property
-    def password(self):
-        return self._password
+    def password(self): 
+        return self._password   # pragma: no cover
 
     @password.setter
     def password(self, pwd):
@@ -43,7 +43,7 @@ class User(Question , Reply):
 
     @property
     def email(self):
-        return self._email
+        return self._email  # pragma: no cover
 
     @email.setter
     def email(self, value):
@@ -55,7 +55,7 @@ class User(Question , Reply):
 
     @property
     def username(self):
-        return self._username
+        return self._username   # pragma: no cover
 
     @username.setter
     def username(self, value):
