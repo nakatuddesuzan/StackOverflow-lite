@@ -1,0 +1,89 @@
+.index{
+    padding: 30px;
+    float: right;
+
+}
+
+a{
+    color: white;
+}
+
+.div1{
+    background-color:  rgb(68, 68, 248);
+    box-sizing: border-box;
+    border: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    border-radius: 14px;
+    vertical-align: center;
+    float: right;
+    opacity: 0.9;
+    margin: 10px;
+}
+
+.flex{
+    display: flex;
+    margin: 1px;
+}
+
+
+input[type=text], input[type=password], input[type=email]  {
+    width: 100%;
+    display: inline-block;
+    border: none;
+    background: rgb(228, 228, 243);
+}
+
+.btn {
+    background-color: rgb(68, 68, 248);
+    color: white;
+    padding: 14px 14px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn-index {
+    padding: 14px 10px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    float: right;
+    opacity: 0.9;
+    border-radius: 20px;
+    background-color: darkblue;
+}
+
+.div2{
+    font-size: 20px;
+    color: white;
+    vertical-align: center;
+    float:left;
+}
+
+@media screen and (max-width: 600px) {
+    .div1{
+      height: 500px;
+      width: 100%;
+      margin: unset;
+    }
+    .index{
+        height: 200px;
+        font-size: 10px;
+        margin: unset;
+    }
+    .div2{
+        font-size: 10px;
+    }
+    .div2 input[type=text], input[type=password], input[type=email]{
+        padding: 5px 2px;
+        margin: 0px;
+    }
+    input[type=text]{
+        padding: 5px 2px;
+    }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="ui/images/logo.png" type="images/png">
+
+    <link rel="stylesheet" href="ui/css/main.css">
+    <link rel="stylesheet" href="ui/css/profile.css">
+</head>
+<body>
+    <div class = "topnav">
+        <a href="index.html">Home</a>
+        <a href= "about.html">About</a>
+        <a  class="active" href="profile.html">Profile</a>
+        <div class = "right">
+            <a href="index.html">Log out</a>
+            <a href="signup.html">signup</a>
+            <input type = "text" name = "search" placeholder="search.....">
+        </div>
+    </div>
+<hr>
+<div class = "row">
+<div class = "column column1">
+    <img src="ui/images/profile.jpg" alt="Profile pic">
+    <a  href = "#">Nakatuddesuzan</a>
+    <p class = "bio-font">I dream to be a software
+        developer at Andela Uganda.
+        Currently in bootcamp.
+        Passionate about learning new things
+        Future employer
+    </p>
+    <button type="reset" class = "btn-profile">Edit bio</button>
+    <button type="reset" class = "btn-profile">Edit profile</button>
+</div>
+<div class = "column column2">
+    <div class = "topnav topnav-prof">
+        <a id = "nav" href="#" class="active"> All questions</a>
+        <a id = "nav" href= "questions.html">Your questions</a> 
+    </div>
+    <div>
+    
+        <p>1st question is isit ok to have more than 1 form per page? 
+        i read dunno where that 1 page shld have only 1 form, true?
+        assuming you do login and register form in 1 page, i think there are 2 approaches
+        2 separate forms -> isit ok for form input[name] to be reused? eg. both login
+         \and register will have username and passwords field
+        1 form. use JS to hide confirmPassword field then at server side check 
+        if there is a confirmPassword is filled? upon typing this, this does not seem like a good idea...</p>
+        <i class="fa fa-thumbs-up"></i>50
+        <i class="fa fa-thumbs-down"></i>6
+        <hr>
+        <button class = " btn-replies"><em>Show more replies</em></button>
+        
+        <p>You can have as many forms as you want on a page. There's no restriction,
+        just think about whether it makes sense or not.If you're going to have more
+        than 1 form,
+        it's fine to duplicate field names if they both do the same job. 
+        But they may or may not be posting to a different location,  
+        so make sure you either do that, or include a hidden field to differentiate which form was completed.
+        Don't use JS to hide fields, make the form work without  
+        JavaScript if possible then enhance it with JS later.</p>
+        <i class="fa fa-thumbs-up"></i>50
+        <i class="fa fa-thumbs-down"></i>6
+        <hr>
+
+        <p>Here's a website I used to be the webmaster for, 
+        they have an intuitive (from the UI side, anyways) way of getting people to 
+        register or login in one page:<br><br>
+
+        <a href = "https://www.usacycling.org/myusac/index.php?pagename=login">
+            here</a>
+
+        Note that if you register (on the left) it takes you to another (larger)
+        registration form that gathers more specific information. 
+        This allows a good quality registration information gathering 
+        mechanism while not overwhelming the user.
+
+        It's been a while, but I believe that this example was handled with two separate forms.</p>
+        <i class="fa fa-thumbs-up"></i>50
+        <i class="fa fa-thumbs-down"></i>6 <br>
+        <p><em>Your Reply</em></p>
+        <textarea name="reply" id="replies" cols="20" rows="5" placeholder="Press Enter to reply"></textarea>
+    </div>
+
+</div>
+    <div class = "column column3">
+        <p><em>Write your question here</em></p>
+        <textarea name="question" id="qn" cols="25" rows="5"></textarea><br>
+        <button id = "btn-qn">Post question</button><br><br><br><br>
+        <em>Questions asked: </em><a href="#" class = "link1"> 50</a><br><br>
+        <em>Answers given: </em><a href="#" class = "link1">100</a>
+    </div>
+</div>
+</body>
+
+<footer>
+    <hr>
+    <div id = "footer">
+        <div class = "left"><p>Designed by: <strong><i>Nakatudde Suzan</i></strong> </p></div>
+        <div class = "right"><p>Contact: <i>+256 774868529</i></p></div>
+        <div class = "center"><p>Copyrights: <mark>Reserved</mark></p></div>
+    </div>
+</footer>   
+</html>
