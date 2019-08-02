@@ -1,0 +1,191 @@
+body{
+    background-color: #f8f8f9;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.link{
+    color:white;
+}
+.link1{
+    color: blue;
+}
+
+.link:hover{
+    color: rgb(140, 140, 248);
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #f8f8f9;
+}
+
+.topnav a {
+float: left;
+color: blue;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+.topnav a:hover {
+background-color: #d5d5e9;
+color: blue;
+}
+
+.topnav a.active {
+background-color: blue;
+color: white;
+}
+
+footer a{
+    color: blue;
+    text-align: center
+}
+
+input[type=text], input[type=password], input[type=email], textarea {
+    width: 90%;
+    padding: 15px;
+    display: inline-block;
+    border: none;
+    background: rgb(228, 228, 243);
+}
+
+.topnav input[type=text] {
+    padding: 14px;
+    margin-left: 16px;
+    border: none;
+    font-size: 17px;
+    width: 50%;
+    background-color: white;
+  }
+
+.sform{
+    box-sizing: border-box;
+    border: 10px solid blue;
+    width: 30%;
+    height: 100%;
+    padding: 30px;
+    border-radius: 14px;
+    vertical-align: center;
+    margin: auto;
+}
+.sformindex{
+    border: 10px solid blue;
+    width: 100%;
+    margin: none;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.center{
+    text-align: center;
+}
+button {
+    background-color: blue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 20px;
+}
+
+footer{
+    font-family: cursive;
+}
+
+
+.center{
+    text-align: center;
+
+}
+
+.right{
+    float: right;
+}
+
+.profile{
+    float: left;
+    font-size: 30px;
+    border-right-width: 5px;
+    border: 0px solid blue;
+    padding: 1px 20px;
+}
+.bio-font{
+    font-size: 16px;
+}
+
+.body-div{
+    background-color:rgb(68, 68, 248);;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+
+    body{
+        font-size: 16px;
+
+    }
+    .topnav a, .topnav input[type=text], textarea{
+      float: left;
+      display: -webkit-inline-flex;
+      text-align: center;
+      font-size: 20px;
+      width: 20%;
+      margin: 0px ;
+      padding: 5px;
+
+    }
+    .topnav input[type=text] {
+      border: 1px solid #ccc;  
+      width: 90%;
+    }
+
+    input[type=text], input[type=password], input[type=email]  {
+        width: 90%;
+        display: inline-block;
+        border: none;
+        background: rgb(228, 228, 243);
+    }
+    .sform{
+        box-sizing: border-box;
+        border: 0px solid rgb(143, 143, 245);
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        border-radius: 16px;
+        vertical-align: center;
+        margin: auto;
+    }
+    body{
+        background-color: white;
+    }
+    .right{
+        float: unset;
+    }
+    body{
+        width: unset;
+        height: unset;
+    }
+    
+    #footer{
+        display: flex;
+        
+    }
+    .topnav input[type=text] {
+        margin-left: unset;
+        margin-top: 5px;
+    }
+}
